@@ -1,0 +1,356 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* By default, the width and height of an element only include the content area, excluding padding and border. When box-sizing: border-box; is applied, the padding and border are included in the element's total width and height.*/
+  
+}
+/* Set background black for entire page */
+html, body {
+    background-color: #000;  /* Black background */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;      /* Prevent horizontal scroll */
+    color: #fff;             /* Optional: white text for contrast */
+    border: 5px solid #444; /* Keep border */
+ }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+/* General content width fix */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Optional: restrict max width but center if needed */
+/* REMOVE or LIMIT this */
+body > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+.resume, .about_1, .feedback {
+  margin: 0 auto;
+}
+
+    
+  body {
+    border: 5px solid #444; /* Dark border */
+  }
+  
+/*TOOLBAR-VERTICAL*/
+.social-icons-vertical {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 10px; /* some spacing from edge */
+  z-index: 1000; /* ensures it stays on top */
+}
+
+.social-icons-vertical a {
+    font-size: 20px; /* Size of the icons */
+    color: white; /* Default icon color */
+    background-color: black; /* Background color for icons */
+    padding: 10px;
+    border-radius: 50%; /* Makes the icons circular */
+    text-align: center;
+    text-decoration: none; /* Removes underline */
+    transition: transform 0.3s;
+    background-color: black; /* Smooth hover effect */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.social-icons-vertical a:hover {
+    transform: scale(1.2); /* Enlarge icon on hover */
+    background-color: gray; /* Change background color on hover */
+    overflow: visible; /* Show icons on hover */
+}
+
+/*HEADER BAR*/
+.header_bar {
+    background-color: black;
+    color: white;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content:space-evenly;
+    /* this means that the items are placed in the center of the container*/
+    align-items: center;
+    /* this means that the items are placed in the center of the container*/
+    font-family: 'Arial', sans-serif;
+}
+.header_items {
+    /* lst items are horizontally places .always in ul*/
+    font-family: 'MV Boli', sans-serif;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 10px 10px;
+}
+.header_items a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 5px;
+    line-height: 25px;
+    white-space: nowrap;
+}
+.header_items a:hover {
+    text-decoration: underline;
+}
+
+.header_items {
+    /* this means if that if horizontal container exceeds it width,
+so horizontal scrollbar will appear horizontally*/
+    overflow-x: auto;
+    /* this actuaaly does not scollbar to move to next line*/
+    white-space: nowrap;
+}
+/*ABOUT PAGE*/
+.about_1{
+    background-image: url('about_bgr.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 600px;
+    width: 100%;
+
+}
+.about_content{
+    width: 800px;
+    padding-left: 5px;
+    padding-right: 5px;
+    flex: 1;
+    /* this means that the element will take up the remaining space in the flex container*/
+    font-size: 20px;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    margin-left: 50px;
+    /* this means that the element will take up the remaining space in the flex container*/
+    /*add spacing between text and image*/
+}
+.about_text p{
+    text-align: center;
+}
+.about_pic img{
+    margin-right: 40px;
+    width: 300px;
+    border: 2px solid black;
+    
+    border-radius: 10px;
+    height: 460px;
+    /* this means that the element will take up the remaining space in the flex container*/
+    /*add spacing between text and image*/
+}
+/*RESUME*/
+.resume{
+    background-image: url('resume_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    padding-top: 70px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 625px;
+    width: 100%;
+    font-family: 'MV Boli', sans-serif;
+    font-size: 20px;
+    color: rgba(209, 199, 199, 0.591);
+}
+/* Dropdown Toggle Button inside resume_education */
+.resume_education .resume_toggle {
+    background-color: #c8ced2;
+    color: rgb(38, 18, 18);
+    border: none;
+    width: 400px;
+    height: 200px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .resume_education .resume_toggle:hover {
+    background-color: #bdc1c4;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .resume_education .resume_content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background-color: #f3efef;
+    padding: 0 12px;
+  }
+  
+  .resume_education .resume_content ul {
+    list-style-type: none;
+    color: #2d2827;
+    margin: 10px 0;
+    padding: 0;
+  }
+  
+  .resume_education .resume_content ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #535151;
+  }
+  
+/*PROJECTS*/
+  .flipCards {
+    background-image: url('https://www.shutterstock.com/image-photo/beautiful-abstract-black-feathers-on-600nw-2217004297.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    font-family: 'MV Boli', sans-serif;
+    font-size: 20px;
+    padding-top: 70px;
+    height: 600px;
+    animation: ease-out 3s;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(300px, 1fr)
+    ); /* Creates a responsive grid */
+    gap: 20px; /* Spacing between cards */
+    justify-items: center;
+    
+  }
+  
+  /* Container holding the card */
+  .flipCard1 {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+  
+    perspective: 1000px; /* Gives a 3D effect */
+  }
+  
+  /* The actual flip card */
+  .cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Ensures the 3D effect */
+  }
+  
+  /* This is the front of the card */
+  .frontface {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back of the card */
+    background-color: #bbb;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  
+  /* This is the back of the card */
+  .backface {
+    -ms-grid-row-align: start;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the front of the card when flipped */
+    background-color: #706b6a; /* Change to whatever color you want */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transform: rotateY(180deg); /* Flips the back of the card */
+  }
+  
+  /* Flip the card when hovered */
+  .flipCard1:hover .cardInner {
+    transform: rotateY(180deg);
+  }
+/*CERTIFICATIONS*/
+.certifications{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVSB1YZwJ6LYIuOGzqaI7wsCoGCkqOmUOeBQ&s');
+    height: 600px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    font-family: 'MV Boli', sans-serif;
+    font-size: 20px;
+    padding-top: 70px;
+    padding-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+}
+.certificate_1 img{
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 3px;
+    float: left;
+    margin-right: 15px;
+    width: 100%;
+}
+.certificate_1 p{
+    text-align: justify;
+    color: azure;
+    font-size: 20px;
+    font-family: 'MV Boli', sans-serif;
+}
+/*FEEDBACK*/
+    .feedback {
+        padding-top: 70px;
+        padding-bottom: 30px;
+        height: 600px;
+        width: 100%;
+        font-family: 'MV Boli', sans-serif;
+        font-size: 20px;
+        padding-left: 40px;
+        text-align: center;
+        margin-bottom: 30px;
+        justify-content: space-evenly;
+    }
+
+    .feedback-email-link {
+      text-align: center;
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+      .feedback-email-link p{
+        justify-content: center;
+
+      }
+      
+      .feedback-email-link:hover {
+        background-color: #2980b9;
+      }
+      
