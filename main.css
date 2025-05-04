@@ -6,6 +6,9 @@
 }
 /* Set background black for entire page */
 html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
     background-color: #000;  /* Black background */
     margin: 0;
     padding: 0;
@@ -22,6 +25,10 @@ html, body {
 * {
     box-sizing: border-box;
   }
+  /*"For every direct child of <body> except the footer, don’t let it shrink.*/
+body > *:not(footer) {
+    flex-shrink: 0;
+}
   
   /* Optional: restrict max width but center if needed */
 /* REMOVE or LIMIT this */
