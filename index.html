@@ -17,7 +17,6 @@
     <style>
       /* --- COLOR PALETTE & ROOT VARIABLES --- */
       :root {
-        /* Dark Mode: Absolute Darkest Navy Blue */
         --bg: #030712;
         --surface: #0a1128;
         --surface-2: #111d4a;
@@ -29,14 +28,13 @@
         --neon: #38bdf8;
         --mono: "DM Mono", monospace;
         --heading-font: 'Great Vibes', cursive;
-        --subheading-font: 'Great Vibes', cursive; /* Cursive subheadings */
-        --body-font: Georgia, serif; /* Georgia font for paragraphs and lists */
+        --subheading-font: Georgia, serif;
+        --body-font: Georgia, serif;
       }
 
       [data-theme="light"] {
-        /* Light Mode: Soft Peach background for cards, vibrant fuchsia/pink accents */
         --bg: #fdf4ff;
-        --surface: #ffe4d6; /* Soft Peach */
+        --surface: #ffe4d6;
         --surface-2: #f7aef8;
         --text: #21132d;
         --muted: #6b7280;
@@ -61,13 +59,13 @@
         background: var(--bg);
         color: var(--text);
         font-family: var(--body-font);
-        font-size: 1.05rem;
-        line-height: 1.7;
+        font-size: 1rem;
+        line-height: 1.6;
         overflow-x: hidden;
         transition: background 0.4s ease, color 0.4s ease;
       }
 
-      /* Clean Top and Bottom Accent Borders (Left and Right removed) */
+      /* Clean Top and Bottom Accent Borders */
       body::before, body::after {
         content: "";
         position: fixed;
@@ -85,6 +83,7 @@
 
       p, .paragraph-text, .card-details, .hero-description, .timeline-item li, .project-description {
         font-family: var(--body-font);
+        font-size: 0.95rem;
       }
 
       a {
@@ -156,20 +155,13 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        font-family: var(--heading-font);
-        font-weight: 400;
-        font-size: 2.6rem;
         white-space: nowrap;
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-
-      .brand:hover {
-        transform: scale(1.08) rotate(-1deg);
+        text-decoration: none;
       }
 
       .brand-mark {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 42px;
         display: grid;
         place-items: center;
         border: 3px solid var(--neon);
@@ -180,7 +172,13 @@
         animation: glowPulse 2s infinite alternate;
         font-family: var(--body-font);
         font-weight: 600;
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .brand-mark:hover {
+        transform: scale(1.12) rotate(-3deg);
       }
 
       @keyframes glowPulse {
@@ -195,33 +193,35 @@
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
+        justify-content: space-between;
+        flex: 1;
+        max-width: 650px;
+        margin: 0 20px;
       }
 
       .nav-box {
-        padding: 6px 12px;
-        border: 3px solid var(--border);
-        border-radius: 10px;
+        padding: 4px 8px;
+        border: 2px solid var(--border);
+        border-radius: 8px;
         background: var(--surface);
-        box-shadow: 0 0 12px rgba(0,0,0,0.25);
+        box-shadow: 0 0 8px rgba(0,0,0,0.25);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .nav-box:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 24px var(--neon);
-        transform: translateY(-4px) scale(1.08);
+        box-shadow: 0 0 18px var(--neon);
+        transform: translateY(-3px) scale(1.08);
       }
 
       .nav-links a {
-        font-size: 24px;
+        font-size: 20px;
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         display: inline-block;
       }
 
       .nav-links a:hover {
-        transform: scale(1.35) rotate(5deg);
+        transform: scale(1.25) rotate(5deg);
       }
 
       .nav-actions {
@@ -231,15 +231,15 @@
       }
 
       .theme-toggle {
-        width: 46px;
-        height: 46px;
+        width: 42px;
+        height: 42px;
         display: grid;
         place-items: center;
         border: 3px solid var(--border);
         border-radius: 12px;
         background: var(--surface);
         color: var(--text);
-        font-size: 22px;
+        font-size: 18px;
         cursor: pointer;
         box-shadow: 0 0 15px var(--border);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -247,7 +247,7 @@
 
       .theme-toggle:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 28px var(--neon);
+        box-shadow: 0 0 25px var(--neon);
         transform: scale(1.1) rotate(15deg);
       }
 
@@ -257,20 +257,20 @@
         border-radius: 10px;
         background: var(--surface);
         color: var(--text);
-        padding: 8px 12px;
+        padding: 6px 10px;
         cursor: pointer;
       }
 
       /* --- GENERAL SECTIONS & THICK 3PX NEON BORDERS --- */
       .section {
-        padding: 90px 0;
+        padding: 80px 0;
       }
 
       .neon-box {
         border: 3px solid var(--border);
         border-radius: 24px;
         background: var(--surface);
-        padding: 50px;
+        padding: 45px;
         box-shadow: 0 0 28px var(--border);
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
@@ -282,9 +282,9 @@
       }
 
       .section-label {
-        margin-bottom: 25px;
+        margin-bottom: 22px;
         color: var(--muted);
-        font: 12px var(--mono);
+        font: 11px var(--mono);
         text-transform: uppercase;
         letter-spacing: 1.5px;
       }
@@ -294,11 +294,10 @@
         margin-right: 10px;
       }
 
-      /* Section Headings: Bold and Main Heading font */
       h2 {
         font-family: var(--heading-font);
         font-weight: 700;
-        font-size: clamp(3.5rem, 5.5vw, 5rem);
+        font-size: clamp(2.8rem, 4.5vw, 4rem);
         line-height: 1.15;
         transition: transform 0.3s ease;
       }
@@ -312,98 +311,99 @@
         font-style: normal;
       }
 
-      /* Subheadings: Cursive font */
       h3, .card-subtitle {
         font-family: var(--subheading-font);
-        font-size: 2.2rem;
-        line-height: 1.2;
-        margin-bottom: 10px;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 8px;
         color: var(--mint);
+        letter-spacing: 0.2px;
       }
 
       .card-subtitle {
-        font-size: 1.5rem;
+        font-size: 0.95rem;
       }
 
       .muted {
         color: var(--muted);
       }
 
-      /* --- HIGH INTENSITY HERO ANIMATION --- */
+      /* --- HERO --- */
       .hero {
         min-height: calc(100vh - 76px);
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         align-items: center;
         gap: 40px;
-        padding: 60px 0;
+        padding: 50px 0;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
         color: var(--mint);
-        font: 12px var(--mono);
+        font: 11px var(--mono);
         letter-spacing: 1px;
         text-transform: uppercase;
       }
 
       .pulse {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background: var(--mint);
-        box-shadow: 0 0 18px var(--mint);
+        box-shadow: 0 0 15px var(--mint);
         animation: highPulse 1.5s infinite;
       }
 
       @keyframes highPulse {
-        0% { transform: scale(0.9); opacity: 0.5; box-shadow: 0 0 10px var(--mint); }
-        50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 25px var(--mint); }
-        100% { transform: scale(0.9); opacity: 0.5; box-shadow: 0 0 10px var(--mint); }
+        0% { transform: scale(0.9); opacity: 0.5; box-shadow: 0 0 8px var(--mint); }
+        50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 20px var(--mint); }
+        100% { transform: scale(0.9); opacity: 0.5; box-shadow: 0 0 8px var(--mint); }
       }
 
       .hero h1 {
         font-family: var(--heading-font);
-        font-size: clamp(4.5rem, 8vw, 7rem);
+        font-size: clamp(3.8rem, 7vw, 6rem);
         line-height: 1.05;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
       }
 
       .hero-description {
         max-width: 600px;
         color: var(--muted);
-        font-size: 1.15rem;
-        line-height: 1.8;
+        font-size: 1.05rem;
+        line-height: 1.7;
       }
 
-      /* High-Intensity Moving Rabbit Graphic */
       .bunny-container {
         position: relative;
         display: grid;
         place-items: center;
-        height: 350px;
+        height: 320px;
       }
 
       .full-bunny {
-        width: 190px;
-        height: 190px;
+        width: 170px;
+        height: 170px;
         animation: highBunnyHops 3s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
-        filter: drop-shadow(0 0 35px var(--neon));
+        filter: drop-shadow(0 0 30px var(--neon));
       }
 
       @keyframes highBunnyHops {
         0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-        25% { transform: translateY(-50px) rotate(12deg) scale(1.15); }
+        25% { transform: translateY(-45px) rotate(12deg) scale(1.12); }
         50% { transform: translateY(0) rotate(0deg) scale(1); }
-        75% { transform: translateY(-30px) rotate(-12deg) scale(1.08); }
+        75% { transform: translateY(-25px) rotate(-12deg) scale(1.06); }
       }
 
       .sparkle-effect {
         position: absolute;
-        font-size: 32px;
+        font-size: 28px;
         animation: highSparkle 1.2s ease-in-out infinite;
       }
 
@@ -412,7 +412,7 @@
 
       @keyframes highSparkle {
         0%, 100% { opacity: 0.1; transform: scale(0.7) rotate(0deg); }
-        50% { opacity: 1; transform: scale(1.6) rotate(180deg); }
+        50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
       }
 
       /* --- ABOUT --- */
@@ -425,68 +425,67 @@
 
       .about-copy p {
         color: var(--text);
-        font-size: 1.15rem;
-        line-height: 1.8;
-        margin-bottom: 16px;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 14px;
       }
 
       .skills-tag-cloud {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 22px;
+        gap: 8px;
+        margin-top: 18px;
       }
 
       .skill-tag {
-        padding: 8px 14px;
-        border: 3px solid var(--border);
-        border-radius: 8px;
+        padding: 6px 12px;
+        border: 2px solid var(--border);
+        border-radius: 6px;
         background: var(--surface-2);
         color: var(--text);
         font: 11px var(--mono);
-        box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        box-shadow: 0 0 8px rgba(0,0,0,0.15);
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .skill-tag:hover {
-        transform: translateY(-4px) scale(1.08);
+        transform: translateY(-3px) scale(1.06);
         border-color: var(--neon);
-        box-shadow: 0 0 20px var(--neon);
+        box-shadow: 0 0 16px var(--neon);
       }
 
-      /* --- CARDS & GRID COMPONENTS --- */
       .grid-2col {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 28px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
       }
 
       .neon-card {
         border: 3px solid var(--border);
         border-radius: 20px;
         background: var(--surface);
-        padding: 32px;
+        padding: 28px;
         box-shadow: 0 0 20px var(--border);
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .neon-card:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 40px var(--neon);
-        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 0 35px var(--neon);
+        transform: translateY(-6px) scale(1.01);
       }
 
       .card-details {
         color: var(--muted);
-        font-size: 1.05rem;
-        line-height: 1.7;
+        font-size: 0.95rem;
+        line-height: 1.6;
       }
 
-      /* --- HIGH-INTENSITY 3D FLIP CARDS FOR ACHIEVEMENTS & CERTIFICATIONS --- */
+      /* --- 3D FLIP CARDS --- */
       .flip-card {
         background-color: transparent;
         width: 100%;
-        height: 230px;
+        height: 210px;
         perspective: 1200px;
       }
 
@@ -500,7 +499,7 @@
       }
 
       .flip-card:hover .flip-card-inner {
-        transform: rotateY(180deg) scale(1.03);
+        transform: rotateY(180deg) scale(1.02);
       }
 
       .flip-card-front, .flip-card-back {
@@ -510,7 +509,7 @@
         border: 3px solid var(--border);
         border-radius: 20px;
         background: var(--surface);
-        padding: 32px;
+        padding: 28px;
         box-shadow: 0 0 20px var(--border);
         display: flex;
         flex-direction: column;
@@ -521,7 +520,7 @@
       .flip-card:hover .flip-card-front,
       .flip-card:hover .flip-card-back {
         border-color: var(--neon);
-        box-shadow: 0 0 40px var(--neon);
+        box-shadow: 0 0 35px var(--neon);
       }
 
       .flip-card-back {
@@ -529,123 +528,123 @@
         background: var(--surface-2);
       }
 
-      /* --- EXPERIENCE TIMELINE --- */
+      /* --- TIMELINE --- */
       .timeline {
         position: relative;
-        padding-left: 35px;
+        padding-left: 30px;
         border-left: 4px solid var(--neon);
       }
 
       .timeline-item {
         position: relative;
-        padding: 0 0 45px 18px;
+        padding: 0 0 40px 16px;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .timeline-item:hover {
-        transform: translateX(8px);
+        transform: translateX(6px);
       }
 
       .timeline-item::before {
         content: "";
         position: absolute;
         top: 5px;
-        left: -43px;
-        width: 16px;
-        height: 16px;
-        border: 4px solid var(--neon);
+        left: -38px;
+        width: 14px;
+        height: 14px;
+        border: 3px solid var(--neon);
         border-radius: 50%;
         background: var(--bg);
-        box-shadow: 0 0 18px var(--neon);
+        box-shadow: 0 0 15px var(--neon);
         animation: dotPulse 2s infinite alternate;
       }
 
       @keyframes dotPulse {
-        0% { transform: scale(1); box-shadow: 0 0 10px var(--neon); }
-        100% { transform: scale(1.3); box-shadow: 0 0 22px var(--neon); }
+        0% { transform: scale(1); box-shadow: 0 0 8px var(--neon); }
+        100% { transform: scale(1.3); box-shadow: 0 0 18px var(--neon); }
       }
 
       .timeline-date {
         color: var(--mint);
-        font: 12px var(--mono);
+        font: 11px var(--mono);
         letter-spacing: 1px;
       }
 
       .timeline-item ul {
         list-style-type: disc;
-        padding-left: 20px;
-        margin-top: 12px;
+        padding-left: 18px;
+        margin-top: 10px;
       }
 
       .timeline-item li {
         color: var(--muted);
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 8px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 6px;
       }
 
       /* --- PROJECTS --- */
       .project-list {
         display: grid;
-        gap: 28px;
+        gap: 24px;
       }
 
       .project-card {
         border: 3px solid var(--border);
         border-radius: 20px;
         background: var(--surface);
-        padding: 40px;
+        padding: 35px;
         box-shadow: 0 0 20px var(--border);
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .project-card:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 45px var(--neon);
-        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 0 40px var(--neon);
+        transform: translateY(-6px) scale(1.01);
       }
 
       .project-description {
         color: var(--muted);
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 25px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
         max-width: 900px;
       }
 
       .project-link {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         color: var(--mint);
-        font: 13px var(--mono);
+        font: 12px var(--mono);
         font-weight: 600;
-        padding: 12px 22px;
-        border: 3px solid var(--border);
-        border-radius: 12px;
+        padding: 10px 18px;
+        border: 2px solid var(--border);
+        border-radius: 10px;
         background: var(--surface-2);
-        box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .project-link:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 25px var(--neon);
-        transform: translateY(-3px) scale(1.06);
+        box-shadow: 0 0 22px var(--neon);
+        transform: translateY(-2px) scale(1.05);
       }
 
-      /* --- THINGS I LOVE --- */
+      /* --- HOBBIES --- */
       .ghibli-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 20px;
       }
 
       .ghibli-card {
         border: 3px solid var(--border);
-        border-radius: 24px;
+        border-radius: 20px;
         background: var(--surface);
-        padding: 35px;
+        padding: 30px;
         text-align: center;
         box-shadow: 0 0 20px var(--border);
         transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -654,42 +653,42 @@
 
       .ghibli-card:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 40px var(--neon);
-        transform: translateY(-12px) rotateY(15deg) scale(1.04);
+        box-shadow: 0 0 35px var(--neon);
+        transform: translateY(-10px) rotateY(12deg) scale(1.03);
       }
 
       .ghibli-icon {
-        font-size: 44px;
-        margin-bottom: 16px;
+        font-size: 38px;
+        margin-bottom: 14px;
         display: inline-block;
         animation: highFloat 2.5s ease-in-out infinite;
       }
 
       @keyframes highFloat {
         0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-12px) rotate(5deg); }
+        50% { transform: translateY(-10px) rotate(4deg); }
       }
 
       .ghibli-card p {
         color: var(--muted);
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         line-height: 1.6;
       }
 
-      /* --- CONTACT & FOOTER WITH SVG BRAND ICONS --- */
+      /* --- CONTACT & FOOTER --- */
       .contact-box {
         text-align: center;
         border: 3px solid var(--border);
         border-radius: 24px;
         background: var(--surface);
-        padding: 70px 35px;
-        box-shadow: 0 0 30px var(--border);
+        padding: 60px 30px;
+        box-shadow: 0 0 28px var(--border);
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .contact-box:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 50px var(--neon);
+        box-shadow: 0 0 45px var(--neon);
         transform: scale(1.01);
       }
 
@@ -697,36 +696,36 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 18px;
-        margin-top: 35px;
+        gap: 16px;
+        margin-top: 30px;
       }
 
       .contact-btn {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        padding: 14px 26px;
-        border: 3px solid var(--border);
-        border-radius: 14px;
+        gap: 8px;
+        padding: 12px 22px;
+        border: 2px solid var(--border);
+        border-radius: 12px;
         background: var(--surface-2);
         color: var(--text);
-        font: 13px var(--mono);
-        box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        font: 12px var(--mono);
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       .contact-btn svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
         fill: var(--mint);
         transition: transform 0.3s ease;
       }
 
       .contact-btn:hover {
         border-color: var(--neon);
-        box-shadow: 0 0 28px var(--neon);
+        box-shadow: 0 0 25px var(--neon);
         color: var(--mint);
-        transform: translateY(-5px) scale(1.06);
+        transform: translateY(-4px) scale(1.05);
       }
 
       .contact-btn:hover svg {
@@ -734,14 +733,14 @@
       }
 
       footer {
-        padding: 40px 0;
+        padding: 35px 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        gap: 20px;
+        gap: 16px;
         color: var(--muted);
-        font: 12px var(--mono);
+        font: 11px var(--mono);
         border-top: 3px solid var(--border);
       }
 
@@ -752,18 +751,18 @@
       }
 
       .visitor-badge {
-        padding: 10px 16px;
-        border: 3px solid var(--border);
-        border-radius: 12px;
+        padding: 8px 14px;
+        border: 2px solid var(--border);
+        border-radius: 10px;
         background: var(--surface);
         color: var(--mint);
-        box-shadow: 0 0 15px var(--border);
+        box-shadow: 0 0 12px var(--border);
       }
 
       /* --- REVEAL ANIMATION --- */
       .reveal {
         opacity: 0;
-        transform: translateY(80px) scale(0.92) rotate(1deg);
+        transform: translateY(60px) scale(0.94) rotate(1deg);
         transition: opacity 1s cubic-bezier(0.175, 0.885, 0.32, 1.275),
           transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
@@ -776,11 +775,11 @@
       @media (max-width: 768px) {
         .hero {
           grid-template-columns: 1fr;
-          gap: 30px;
+          gap: 25px;
         }
         .about-grid {
           grid-template-columns: 1fr;
-          gap: 30px;
+          gap: 25px;
         }
         .nav-links {
           display: none;
@@ -804,18 +803,18 @@
   </head>
 
   <body>
-    <!-- Canvas wallpaper: Glowing snowflakes (dark mode) & rose petals (light mode) -->
+    <!-- Canvas wallpaper -->
     <canvas id="wallpaper" aria-hidden="true"></canvas>
     <div class="noise" aria-hidden="true"></div>
 
     <header class="header">
       <div class="container nav">
-        <a class="brand" href="#home" aria-label="Khushi home">
-          <span class="brand-mark">K</span>
-          <span>Khushi Bhardwaj</span>
+        <!-- Resume download brand link -->
+        <a class="brand" href="Khushi Bhardwaj_Resume.pdf" download="Khushi Bhardwaj_Resume.pdf" aria-label="Resume download">
+          <div class="brand-mark" title="Click to download resume">Resume</div>
         </a>
 
-        <!-- Emoji Navigation -->
+        <!-- Evenly spread navbar icon boxes -->
         <nav class="nav-links" id="navLinks" aria-label="Main navigation">
           <div class="nav-box"><a href="#home" title="Home">🏠</a></div>
           <div class="nav-box"><a href="#about" title="About">👤</a></div>
@@ -851,7 +850,7 @@
         <div class="reveal">
           <div class="eyebrow">
             <span class="pulse"></span>
-            computer science · backend · machine learning
+            computer science student · backend developer · machine learning enthusiast
           </div>
 
           <h1>
@@ -863,26 +862,21 @@
           </p>
         </div>
 
-        <!-- Full-Body Moving Rabbit Graphic on the right side -->
+        <!-- Full-Body Moving Rabbit Graphic -->
         <div class="bunny-container reveal">
           <span class="sparkle-effect sparkle-1">✨</span>
           <svg class="full-bunny" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Full body rabbit">
-            <!-- Bunny Ears -->
             <ellipse cx="80" cy="50" rx="12" ry="35" fill="currentColor" transform="rotate(-15 80 50)" />
             <ellipse cx="120" cy="50" rx="12" ry="35" fill="currentColor" transform="rotate(15 120 50)" />
             <ellipse cx="80" cy="50" rx="6" ry="25" fill="#ffb6c1" transform="rotate(-15 80 50)" />
             <ellipse cx="120" cy="50" rx="6" ry="25" fill="#ffb6c1" transform="rotate(15 120 50)" />
-            <!-- Bunny Head -->
             <circle cx="100" cy="90" r="35" fill="currentColor" />
-            <!-- Cheeks & Eyes -->
             <circle cx="88" cy="85" r="4" fill="#030712" />
             <circle cx="112" cy="85" r="4" fill="#030712" />
             <ellipse cx="100" cy="98" rx="5" ry="3" fill="#ffb6c1" />
-            <!-- Bunny Body & Paws -->
             <ellipse cx="100" cy="145" rx="30" ry="35" fill="currentColor" />
             <circle cx="80" cy="170" r="12" fill="currentColor" />
             <circle cx="120" cy="170" r="12" fill="currentColor" />
-            <!-- Fluffy Tail -->
             <circle cx="135" cy="150" r="10" fill="#ffffff" />
           </svg>
           <span class="sparkle-effect sparkle-2">✨</span>
@@ -892,7 +886,7 @@
       <!-- ABOUT -->
       <section class="container section reveal" id="about">
         <div class="neon-box">
-          <div class="section-label"><span>01</span> / professional summary & skills</div>
+          <div class="section-label"><span>01</span></div>
           <div class="about-grid">
             <div>
               <h2><strong>Professional Summary</strong></h2>
@@ -904,7 +898,6 @@
               <div class="skills-tag-cloud">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">Java</span>
-                <span class="skill-tag">Node.js</span>
                 <span class="skill-tag">Express.js</span>
                 <span class="skill-tag">React.js</span>
                 <span class="skill-tag">Scikit-learn</span>
@@ -919,33 +912,34 @@
 
       <!-- EDUCATION -->
       <section class="container section reveal" id="education">
-        <div class="section-label"><span>02</span> / academic background</div>
-        <h2 style="margin-bottom: 30px;"><strong>Educational Qualifications</strong></h2>
+        <div class="section-label"><span>02</span></div>
+        <h2 style="margin-bottom: 25px;"><strong>Educational Qualifications</strong></h2>
         <div class="grid-2col">
           <div class="neon-card">
             <h3>Dronacharya College of Engineering</h3>
-            <p class="card-subtitle">B.Tech - CSE (Affiliated to Gurugram University) | 2024–2028</p>
+            <p class="card-subtitle">B.Tech - CSE (Affiliated to Gurugram University)</p>
             <p class="card-details">
+              2024 – 2028 <br>
               CGPA: 8.5 / 10
             </p>
           </div>
           <div class="neon-card">
             <h3>St. Michael's Sr. Sec. School</h3>
-            <p class="card-subtitle">XII (CBSE) · 2023–2024</p>
-            <p class="card-details">Percentage: 94%</p>
+            <p class="card-subtitle">XII (CBSE)</p>
+            <p class="card-details">2023 – 2024 <br>Percentage: 94%</p>
           </div>
           <div class="neon-card">
             <h3>St. Michael's Sr. Sec. School</h3>
-            <p class="card-subtitle">X (CBSE) · 2021–2022</p>
-            <p class="card-details">Percentage: 98.5%</p>
+            <p class="card-subtitle">X (CBSE)</p>
+            <p class="card-details">2021 – 2022 <br>Percentage: 98.5%</p>
           </div>
         </div>
       </section>
 
       <!-- EXPERIENCE -->
       <section class="container section reveal" id="experience">
-        <div class="section-label"><span>03</span> / professional journey</div>
-        <h2 style="margin-bottom: 40px;"><strong>Work & Internships</strong></h2>
+        <div class="section-label"><span>03</span></div>
+        <h2 style="margin-bottom: 35px;"><strong>Work Experience</strong></h2>
         <div class="timeline">
           <article class="timeline-item">
             <span class="timeline-date">July 2026 — September 2026</span>
@@ -979,40 +973,37 @@
 
       <!-- PROJECTS -->
       <section class="container section reveal" id="projects">
-        <div class="section-label"><span>04</span> / selected work</div>
-        <h2 style="margin-bottom: 35px;"><strong>Projects I've Built</strong></h2>
+        <div class="section-label"><span>04</span></div>
+        <h2 style="margin-bottom: 30px;"><strong>Projects</strong></h2>
 
         <div class="project-list">
-          <!-- Project 1 -->
           <article class="project-card">
             <h3>Scroll Sense</h3>
             <p class="project-description">
               Built an ML-based application that predicts potential smartphone addiction from screen time, social media usage, gaming, sleep, notifications, stress, and daily phone habits. Developed a FastAPI inference layer and integrated the trained Scikit-learn model with a Streamlit interface. Implemented automated testing and CI workflows using Pytest and GitHub Actions.
             </p>
-            <a class="project-link" href="https://github.com/KhushiB03" target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
+            <a class="project-link" href="https://github.com/KhushiB03/Phone-Addiction-Prediction" target="_blank" rel="noopener noreferrer">
+               GitHub Link
             </a>
           </article>
 
-          <!-- Project 2 -->
           <article class="project-card">
             <h3>Image Processing Service</h3>
             <p class="project-description">
               Built a full-stack image processing application supporting user registration, image uploads, transformations, and retrieval through REST APIs. Developed the backend using Node.js and Express.js with MongoDB and Cloudinary for image storage and processing workflows.
             </p>
-            <a class="project-link" href="https://github.com/KhushiB03" target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
+            <a class="project-link" href="https://github.com/KhushiB03/Image---Processing---Service" target="_blank" rel="noopener noreferrer">
+               GitHub Link
             </a>
           </article>
 
-          <!-- Project 3 -->
           <article class="project-card">
             <h3>Caching Proxy Server</h3>
             <p class="project-description">
               Engineered a Node.js/Express.js proxy server with in-memory caching to reduce redundant API calls by an estimated 30%. Implemented TTL-based cache invalidation to maintain cache freshness while improving response efficiency.
             </p>
-            <a class="project-link" href="https://github.com/KhushiB03" target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
+            <a class="project-link" href="https://github.com/KhushiB03/Caching-proxy-server" target="_blank" rel="noopener noreferrer">
+               GitHub Link
             </a>
           </article>
         </div>
@@ -1020,14 +1011,15 @@
 
       <!-- ACHIEVEMENTS -->
       <section class="container section reveal" id="achievements">
-        <div class="section-label"><span>05</span> / accomplishments</div>
-        <h2 style="margin-bottom: 35px;"><strong>Hackathons & Awards</strong></h2>
+        <div class="section-label"><span>05</span></div>
+        <h2 style="margin-bottom: 30px;"><strong>Accomplishments</strong></h2>
         <div class="grid-2col">
           <div class="flip-card">
             <div class="flip-card-inner">
               <div class="flip-card-front">
-                <h3>Winner — Women Techmakers Hackathon</h3>
-                <p class="card-subtitle">Hover to flip card ↻</p>
+                <h3 style="font-size: 1.5rem; font-family: var(--mono); color: var(--text);">WINNER</h3>
+                <h3>Women Techmakers Hackathon</h3>
+                <p class="card-subtitle">↻</p>
               </div>
               <div class="flip-card-back">
                 <p class="card-details">Recognized for developing an innovative accessibility software solution for visually impaired users.</p>
@@ -1038,8 +1030,9 @@
           <div class="flip-card">
             <div class="flip-card-inner">
               <div class="flip-card-front">
-                <h3>Semi-finalist — The Economic Times AI Hackathon</h3>
-                <p class="card-subtitle">Hover to flip card ↻</p>
+                <h3 style="font-size: 1.3rem; font-family: var(--mono); color: var(--text);">SEMI-FINALIST</h3>
+                <h3>The Economic Times AI Hackathon</h3>
+                <p class="card-subtitle">↻</p>
               </div>
               <div class="flip-card-back">
                 <p class="card-details">Showcased advanced AI problem-solving and rapid prototyping capabilities.</p>
@@ -1051,14 +1044,14 @@
 
       <!-- CERTIFICATIONS -->
       <section class="container section reveal" id="certifications">
-        <div class="section-label"><span>06</span> / credentials</div>
-        <h2 style="margin-bottom: 35px;"><strong>Certifications & Participations</strong></h2>
+        <div class="section-label"><span>06</span></div>
+        <h2 style="margin-bottom: 30px;"><strong>Certifications & Participations</strong></h2>
         <div class="grid-2col">
           <div class="flip-card">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>6-week Summer Analytics Program</h3>
-                <p class="card-subtitle">IIT Guwahati</p>
+                <p class="muted">IIT Guwahati</p>
               </div>
               <div class="flip-card-back">
                 <p class="card-details">Intensive analytics training focusing on data handling and insights generation.</p>
@@ -1069,8 +1062,8 @@
           <div class="flip-card">
             <div class="flip-card-inner">
               <div class="flip-card-front">
-                <h3>Google's 5-Day AI Agents Intensive</h3>
-                <p class="card-subtitle">Vibe Coding Course</p>
+                <h3>5-Day AI Agents Intensive</h3>
+                <p class="muted">Vibe Coding Course - Google</p>
               </div>
               <div class="flip-card-back">
                 <p class="card-details">Hands-on experience building multi-agent AI systems and automated workflows.</p>
@@ -1082,7 +1075,7 @@
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Data Structures & Algorithm Design</h3>
-                <p class="card-subtitle">NPTEL, IIT Kanpur</p>
+                <p class="muted">NPTEL, IIT Kanpur</p>
               </div>
               <div class="flip-card-back">
                 <p class="card-details">Strong foundation in algorithmic efficiency, data organization, and problem solving.</p>
@@ -1094,7 +1087,7 @@
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Programming in Java</h3>
-                <p class="card-subtitle">NPTEL, IIT Kharagpur</p>
+                <p class="muted">NPTEL, IIT Kharagpur</p>
               </div>
               <div class="flip-card-back">
                 <p class="card-details">Comprehensive object-oriented programming principles and Java backend concepts.</p>
@@ -1106,7 +1099,7 @@
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Web Development</h3>
-                <p class="card-subtitle">Udemy</p>
+                <p class="muted">Udemy</p>
               </div>
               <div class="flip-card-back">
                 <p class="card-details">Full-stack web development training covering HTML, CSS, JavaScript, and backend APIs.</p>
@@ -1118,9 +1111,9 @@
 
       <!-- THINGS I LOVE -->
       <section class="container section reveal" id="hobbies">
-        <div class="section-label"><span>07</span> / beyond code</div>
-        <h2 style="margin-bottom: 15px;"><strong>Things I Love</strong></h2>
-        <p class="muted" style="margin-bottom: 35px; font-size: 1.05rem;">Cozy pursuits and passions outside professional life.</p>
+        <div class="section-label"><span>07</span></div>
+        <h2 style="margin-bottom: 12px;"><strong>Beyond Code..</strong></h2>
+        <p class="muted" style="margin-bottom: 30px; font-size: 0.95rem;">Cozy pursuits and passions outside professional life.</p>
 
         <div class="ghibli-grid">
           <div class="ghibli-card">
@@ -1149,21 +1142,19 @@
       <!-- CONTACT -->
       <section class="container section reveal" id="contact">
         <div class="contact-box">
-          <div class="section-label" style="justify-content: center; display: flex;"><span>08</span> / online presence</div>
-          <a class="project-link" href="mailto:ikhushi205@gmail.com" style="font-size: 16px; padding: 14px 28px;">
-            ikhushi205@gmail.com ↗
-          </a>
+          <div class="section-label" style="justify-content: center; display: flex;"><span>08</span></div>
+          <h2 style="margin-bottom: 12px;"><strong>Connect with me...</strong></h2>
 
           <div class="contact-links">
             <a class="contact-btn" href="https://github.com/KhushiB03" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               GitHub
             </a>
-            <a class="contact-btn" href="https://www.linkedin.com/in/khushi-bhardwaj-993214345" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a class="contact-btn" href="https://www.linkedin.com/in/khushibhardwaj28/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
             </a>
-            <a class="contact-btn" href="https://kaggle.com" target="_blank" rel="noopener noreferrer" aria-label="Kaggle">
+            <a class="contact-btn" href="https://www.kaggle.com/khushi018" target="_blank" rel="noopener noreferrer" aria-label="Kaggle">
               <svg viewBox="0 0 24 24"><path d="M18.88 22.25c-.24 0-.48-.06-.7-.18l-5.75-3.32-5.75 3.32c-.44.25-.99.19-1.36-.14-.38-.32-.51-.85-.32-1.33l2.25-6.52-5.26-4.13c-.41-.32-.55-.88-.34-1.35.21-.47.71-.77 1.23-.77h6.63l2.06-6.42c.18-.54.69-.91 1.27-.91s1.09.37 1.27.91l2.06 6.42h6.63c.52 0 1.02.3 1.23.77.21.47.07 1.03-.34 1.35l-5.26 4.13 2.25 6.52c.19.48.06 1.01-.32 1.33-.22.2-.48.3-.74.3z"/></svg>
               Kaggle
             </a>
@@ -1171,20 +1162,39 @@
               <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.011c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
               Discord
             </a>
+            <a class="contact-btn" href="https://leetcode.com/u/i7oXAch3XU/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+              <svg viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 5.826a3.543 3.543 0 0 0-1.01 2.493c0 1.02.404 1.94 1.059 2.602l3.447 3.513c.42.427.652.99.652 1.583 0 .593-.232 1.156-.652 1.583l-3.447 3.513a3.565 3.565 0 0 0-1.06 2.602 3.543 3.543 0 0 0 1.01 2.493l5.406 5.388a1.374 1.374 0 0 0 .961.438 1.374 1.374 0 0 0 .961-.397l2.87-2.884a1.374 1.374 0 0 0 0-1.94 1.374 1.374 0 0 0-1.94 0l-1.9 1.914-3.468-3.456a.784.784 0 0 1-.223-.553c0-.21.086-.407.223-.547l3.468-3.535a3.34 3.34 0 0 0 .98-2.368c0-.923-.36-1.76-1.002-2.392l-3.447-3.513a.784.784 0 0 1-.223-.547c0-.21.086-.407.223-.547l3.805-3.882a1.374 1.374 0 0 0 0-1.94 1.374 1.374 0 0 0-1.94 0L14.444.438A1.374 1.374 0 0 0 13.483 0z"/></svg>
+              LeetCode
+            </a>
+            <a class="contact-btn" href="mailto:ikhushi205@gmail.com" rel="noopener noreferrer" aria-label="Gmail">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Gmail
+            </a>
+            <a class="contact-btn" href="mailto:khushi.27089@ggnindia.dronacharya.info" target="_blank" rel="noopener noreferrer" aria-label="Outlook">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Outlook
+            </a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="container">
-      <span>© <span id="year"></span> Khushi Bhardwaj</span>
-      <span>Feedback? <a class="footer-feedback-link" href="mailto:ikhushi205@gmail.com?subject=Portfolio%20Feedback">Drop an email here ✉️</a></span>
+      <div>
+        <span>© <span id="year"></span> Khushi Bhardwaj ❤</span>
+        <p style="margin-top: 4px; color: var(--muted);">Designed with care</p>
+      </div>
+      <div>
+        <p>Happy to hear from you 😊 <a class="footer-feedback-link" href="mailto:ikhushi205@gmail.com?subject=Portfolio%20Feedback">✉️</a></p>
+      </div>
       <div class="visitor-badge">Visitors: <span id="visitorCount">1482</span></div>
-      <a href="#home">Back to top ↑</a>
+      <div>
+        <a href="#home">Back to top ↑</a>
+      </div>
     </footer>
 
     <script>
-      /* --- THEME TOGGLE (Sun/Moon switching) --- */
+      /* --- THEME TOGGLE --- */
       const themeToggle = document.getElementById("themeToggle");
       const currentTheme = localStorage.getItem("theme") || "dark";
       if (currentTheme === "light") {
@@ -1226,7 +1236,7 @@
         });
       });
 
-      /* --- HIGH-INTENSITY FLASH-IN REVEAL ON SCROLL --- */
+      /* --- REVEAL ON SCROLL --- */
       const revealObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -1243,7 +1253,7 @@
         revealObserver.observe(element);
       });
 
-      /* --- DYNAMIC WALLPAPER: Real Snowflakes (Dark Mode) & Rose Petals (Light Mode) --- */
+      /* --- DYNAMIC WALLPAPER --- */
       const canvas = document.getElementById("wallpaper");
       const ctx = canvas.getContext("2d");
 
@@ -1304,13 +1314,11 @@
           ctx.globalAlpha = p.alpha;
 
           if (isLight) {
-            // Baby pink/red rose petal shape
             ctx.fillStyle = "#ff6392";
             ctx.beginPath();
             ctx.ellipse(0, 0, p.radius, p.radius * 1.6, 0, 0, Math.PI * 2);
             ctx.fill();
           } else {
-            // True glowing snowflake (6-branch crystal simulation)
             ctx.strokeStyle = "#38bdf8";
             ctx.lineWidth = 2;
             ctx.shadowColor = "#38bdf8";
@@ -1341,7 +1349,7 @@
         drawWallpaper();
       });
 
-      /* --- LIVE DYNAMIC VISITOR COUNTER --- */
+      /* --- VISITOR COUNTER --- */
       document.getElementById("year").textContent = new Date().getFullYear();
       let visitors = localStorage.getItem("visitor_count");
       if (!visitors) {
